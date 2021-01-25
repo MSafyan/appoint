@@ -52,7 +52,7 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <nav className="WideNav">
+                <nav className="WideNav bcolor">
                     <ul>
                         <li>
                             <NavLink activeClassName = "selected" to="/Home">Home</NavLink>

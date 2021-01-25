@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Admin from './pages/Admin';
-import HomePage from './pages/HomePage';
-import Authors from './pages/Authors';
+import Sessions from './components/Sessions.js';
+import Authors from './components/Authors.js';
+import Home from './components/Home.js';
+import Admin from './components/Admin.js';
 import './App.css';
 
 function App() {
@@ -12,9 +13,19 @@ function App() {
 			<Router>
 				<Navbar />
 				<Switch>
-					<Route exact path='/' component={HomePage}></Route>
-					<Route exact path='/authors' component={Authors}></Route>
-					<Route exact path='/admin' component={Admin}></Route>
+					<Route exact path='/Home'>
+						<Home />
+					</Route>
+					<Route path='/sessions'>
+						<Sessions />
+					</Route>
+					<Route path='/authors'>
+						<Authors />
+					</Route>
+					<Route path='/admin'>
+						<Admin />
+					</Route>
+					<Route path='*'>404 Not Found</Route>
 				</Switch>
 			</Router>
 		</div>

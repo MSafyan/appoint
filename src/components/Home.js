@@ -71,23 +71,43 @@ class Home extends React.Component {
 		let disabledNext = this.state.page >= noOfPages;
 
 		return (
-			<div>
+			<div style={{ background: '#cbd0d6' }}>
 				<Search query={this.state.query} handleSearch={this.handleSearch} />
-				{filteredData
-					.slice(
-						this.state.pageSize * this.state.page - this.state.pageSize,
-						this.state.pageSize * this.state.page
-					)
-					.map((details, i) => (
-						<Session key={i} details={details} />
-					))}
-				<button onClick={this.handlePreviousClick} disabled={disabledPrevious}>
-					Previous
-				</button>
-				Page {this.state.page} of {noOfPages}
-				<button onClick={this.handleNextClick} disabled={disabledNext}>
-					Next
-				</button>
+				<div className='container'>
+					<div className='grid'>
+						{filteredData
+							.slice(
+								this.state.pageSize * this.state.page - this.state.pageSize,
+								this.state.pageSize * this.state.page
+							)
+							.map((details, i) => (
+								<Session className='grid-item' key={i} details={details} />
+							))}
+					</div>
+				</div>
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}
+				>
+					<button
+						className='card-btn'
+						onClick={this.handlePreviousClick}
+						disabled={disabledPrevious}
+					>
+						Previous
+					</button>
+					Page {this.state.page} of {noOfPages}
+					<button
+						className='card-btn'
+						onClick={this.handleNextClick}
+						disabled={disabledNext}
+					>
+						Next
+					</button>
+				</div>
 			</div>
 		);
 	}

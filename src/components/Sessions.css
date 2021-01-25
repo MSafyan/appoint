@@ -1,0 +1,9 @@
+.sessionSelect {
+	display: flex;
+	justify-content: space-around;
+}
+@media screen and (max-width: 600px) {
+	.sessionSelect {
+		flex-direction: column;
+	}
+}
